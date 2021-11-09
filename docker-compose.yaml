@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  jenkins:
+    container_name: "jenkins"
+    build: .
+    depends_on:
+      - dind
+    environment:
+      JAVA_OPTS: "-Djava.awt.headless=true"
+      DOCKER_HOST: "tcp://dind:2375"
+      #DOCKER_TLS_CERTDIR: /certs #for TLS
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    #volumes: #for TLS
+      #- dind-certs-client:/certs/client:ro #for TLS
+  dind:
+    container_name: "dind"
+    image: docker:dind
+    privileged: true
+    expose:
+      - 2375
+      #- 2376 #for tls
+    environment:
+      - DOCKER_TLS_CERTDIR=
+      #- DOCKER_TLS_CERTDIR=/certs #for TLS
+    #volumes: #for TLS
+      #- dind-certs-ca:/certs/ca #for TLS
+      #- dind-certs-client:/certs/client #for TLS
