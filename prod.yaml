@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: jenkins-nodeport
 spec:
-  selector:
-    app: app.kubernetes.io/component=jenkins-controller,app.kubernetes.io/instance=cd-jenkins	
+  selector: 
+    app.name: jenkins
   type: NodePort
   ports:
     - port: 80
