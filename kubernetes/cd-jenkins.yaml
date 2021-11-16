@@ -354,6 +354,8 @@ spec:
       - args:
         - --httpPort=8080
         env:
+        - name: DOCKER_HOST
+          value: tcp://dind:2375
         - name: POD_NAME
           valueFrom:
             fieldRef:
@@ -431,8 +433,6 @@ spec:
           readOnly: true
           subPath: jenkins-admin-password
       - env:
-        - name: DOCKER_HOST
-          value: tcp://dind:2375
         - name: POD_NAME
           valueFrom:
             fieldRef:
