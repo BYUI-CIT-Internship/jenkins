@@ -393,7 +393,7 @@ spec:
             path: /login
             port: http
             scheme: HTTP
-          intialDelaySeconds: 30
+          initialDelaySeconds: 30
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 5
