@@ -4,7 +4,7 @@ metadata:
   name: jenkins-nodeport
 spec:
   selector: 
-    app.name: jenkins
+    app.kubernetes.io/instance: cd-jenkins
   type: NodePort
   ports:
     - port: 80
