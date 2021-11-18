@@ -13,4 +13,4 @@ Make sure that you have docker-compose installed on your system and that docker 
 
 ## Running on Kuberenetes
 
-Have kubectl installed and also make sure that you have a cluster to deploy to. Change directories into `kuberenetes` and run `kubectl create -f dind-deployment.yaml,dind-service.yaml,jenkins-deployment.yaml,jenkins-service.yaml`to start the pods from the files.
+Have kubectl installed and also make sure that you have a cluster to deploy to. Change directories into `kuberenetes` and run `kubectl apply -f dind-deployment.yaml,dind-service.yaml,cd-jenkins.yaml` on the google cloud cluster (https://console.cloud.google.com/kubernetes/clusters/details/us-east1-b/cluster-1/details?project=constellation-275522)to start the pods from the files.
